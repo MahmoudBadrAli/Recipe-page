@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&amp;family=Outfit:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <title>Recipe page</title>
+  </head>
+  <body>
+    <div class="recipe">
+      <div class="description reveal">
+        <div class="image"><img src="Challenge/recipe-page-main/assets/images/image-omelette.jpeg" alt="omelette"></div>
+        <h1>Simple Omelette Recipe</h1>
+        <p>
+          An easy and quick dish, perfect for any meal. This
+          classic omelette combines beaten eggs cooked to perfection, optionally
+          filled with your choice of cheese, vegetables, or meats.
+        </p>
+        <div class="preparation reveal">
+          <h3>Preparation time</h3>
+          <ul>
+            <li class="reveal">
+              <div> <span>Total:  </span><span class="des">Approximately 10 minutes</span></div>
+            </li>
+            <li class="reveal">
+              <div><span>Preparation:  </span><span class="des">5 minutes</span></div>
+            </li>
+            <li class="reveal">
+              <div> <span>Cooking:  </span><span class="des">5 minutes</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="ingredients reveal">
+        <h2>Ingredients</h2>
+        <ul>
+          <li class="reveal"> 
+            <p>2-3 large eggs</p>
+          </li>
+          <li class="reveal"> 
+            <p>Salt, to taste</p>
+          </li>
+          <li class="reveal"> 
+            <p>Pepper, to taste</p>
+          </li>
+          <li class="reveal"> 
+            <p>1 tablespoon of butter or oil</p>
+          </li>
+          <li class="reveal"> 
+            <p>Optional fillings: cheese, diced vegetables, cooked meats, herbs</p>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div class="instructions reveal">
+        <h2>Instructions</h2>
+        <ol>
+          <li class="reveal">
+            <div> <span class="tit">Beat the eggs: </span><span class="des">In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture.</span></div>
+          </li>
+          <li class="reveal">
+            <div> <span class="tit">Heat the pan: </span><span class="des">Place a non-stick frying pan over medium heat and add butter or oil.</span></div>
+          </li>
+          <li class="reveal">
+            <div> <span class="tit">Cook the omelette: </span><span class="des">Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</span></div>
+          </li>
+          <li class="reveal">
+            <div> <span class="tit">Add fillings (optional): </span><span class="des">When the eggs begin to set at the edges but are still slightly runny in the middle, sprinkle your chosen fillings over one half of the omelette.</span></div>
+          </li>
+          <li class="reveal">
+            <div> <span class="tit">Fold and serve: </span><span class="des">As the omelette continues to cook, carefully lift one edge and fold it over the fillings. Let it cook for another minute, then slide it onto a plate.</span></div>
+          </li>
+          <li class="reveal">
+            <div> <span class="tit">Enjoy: </span><span class="des">Serve hot, with additional salt and pepper if needed.</span></div>
+          </li>
+        </ol>
+      </div>
+      <hr>
+      <div class="nutrition reveal">
+        <h2>Nutrition</h2>
+        <p>
+          The table
+          below shows nutritional values per serving without the additional fillings.
+        </p>
+        <div class="table">
+          <div class="calories reveal">
+            <div class="tit">Calories</div>
+            <div class="nutrition-value">277kcal</div>
+          </div>
+          <hr>
+          <div class="carbs reveal">
+            <div class="tit">Carbs</div>
+            <div class="nutrition-value">0g</div>
+          </div>
+          <hr>
+          <div class="protein reveal">
+            <div class="tit">Protein</div>
+            <div class="nutrition-value">20g</div>
+          </div>
+          <hr>
+          <div class="fat reveal">
+            <div class="tit">Fat</div>
+            <div class="nutrition-value">22g</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("load", function() {
+        document.body.classList.add("loaded");
+      });
+      document.addEventListener("DOMContentLoaded", function() {
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+      
+        reveals.forEach(el => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
